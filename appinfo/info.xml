@@ -7,6 +7,8 @@
     <description><![CDATA[Preview non presenti di default]]></description>
     <licence>agpl</licence>
     <author mail="godhouse78@gmail.com" homepage="https://github.com/godhouse/rawpreview">Daniele Casadio</author>
+    <repository type="git">https://github.com/godhouse/rawpreview.git</repository>
+    <website>https://github.com/godhouse/rawpreview</website>
     <version>0.0.1</version>
     <namespace>RawPreview</namespace>
     <types>
@@ -17,4 +19,7 @@
     <dependencies>
         <nextcloud min-version="12" max-version="13"/>
     </dependencies>
+    <settings>
+        <admin>OCA\RawPreview\Settings\AdminSettings</admin>
+    </settings>
 </info>
