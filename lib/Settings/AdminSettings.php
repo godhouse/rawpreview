@@ -9,15 +9,15 @@ use OCP\Settings\ISettings;
 
 class AdminSettings implements ISettings {
 
-    /** @var IConfig */
+	/** @var IConfig */
 	private $config;
 
-    /** @var IRequest */
+	/** @var IRequest */
 	private $request;
 
 	public function __construct(IConfig $config, IRequest $request) {
 		$this->config = $config;
-        $this->request = $request;
+		$this->request = $request;
 	}
 
 	/**
@@ -25,11 +25,11 @@ class AdminSettings implements ISettings {
 	 */
 	public function getForm() {
 
-        $exiftool_pos = $this->config->getAppValue('rawpreview', 'exiftool');
+        $exiftool_pos = $this->config->getSystemValue('rawpreview', 'exiftool');
         $from_helper_pos = \OC_Helper::findBinaryPath('exiftool');
         $default_pos = '';
         if(empty($exiftool_pos)) {
-            $exiftool_pos = (empty($from_helper_pos)) ? $default_pos : $from_helper_pos;
+		$exiftool_pos = (empty($from_helper_pos)) ? $default_pos : $from_helper_pos;
         }
 
 		$parameters = [
