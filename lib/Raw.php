@@ -14,7 +14,7 @@ class Raw implements IProvider {
     /**
      * {@inheritDoc}
      */
-	 
+
 	public function getThumbnail($path, $maxX, $maxY, $scalingup, $fileview) {
 		//get fileinfo
 		$fileInfo = $fileview->getFileInfo($path);
@@ -26,7 +26,7 @@ class Raw implements IProvider {
 		if ($maxSizeForImages !== -1 && $size > ($maxSizeForImages * 1024 * 1024)) {
 			return false;
 		}
-		
+
 		$tmpPath = $fileview->toTmpFile($path);
 		if (!$tmpPath) {
 			\OCP\Util::writeLog('mypreview', 'Camera Raw Previews: Temporary copy failed', \OCP\Util::ERROR);
@@ -45,13 +45,13 @@ class Raw implements IProvider {
 		$image->fixOrientation();
 
 		unlink($tmpPath);
-		
+
 
 		if ($image->valid()) {
 			$image->scaleDownToFit($maxX, $maxY);
 			return $image;
 		}
-		
+
         \OCP\Util::writeLog('mypreview', 'Camera Raw Previews: Image not valid', \OCP\Util::ERROR);
 		return false;
 	}
@@ -65,18 +65,18 @@ class Raw implements IProvider {
         $converter = \OC_Helper::findBinaryPath('exiftool');
         if (empty($converter)) {
 			$converter = '/usr/local/bin/exiftool';
-        }        
-		
-		
+        }
+
+
 		$image = shell_exec($converter . " -b -PreviewImage " . escapeshellarg($tmpPath));
 		$rotation = shell_exec($converter . " -n -Orientation " . escapeshellarg($tmpPath));
 		if(preg_match('/Orientation\s*:\s*(\d+)/', $rotation, $match)){
 			$rotation = $match[1];
 		} else $rotation = 1;
 		$im = new Imagick();
-        
+
 		$im->readImageBlob($image);
-		
+
         if (!$im->valid()) {
 			\OCP\Util::writeLog('mypreview', 'Camera Raw Previews: Failed conversion', \OCP\Util::ERROR);
             return false;
@@ -86,7 +86,7 @@ class Raw implements IProvider {
 
         return $im;
 	}
-	
+
     protected function resize($im, $maxX, $maxY) {
 		list($previewWidth, $previewHeight) = array_values($im->getImageGeometry());
 		if ($previewWidth > $maxX || $previewHeight > $maxY) {
@@ -94,11 +94,11 @@ class Raw implements IProvider {
 		}
 		return $im;
 	}
-	
+
 	public function isAvailable(\OCP\Files\FileInfo $file) {
-		$valid = $file->getSize() > 0;
-		\OCP\Util::writeLog('mypreview', 'Camera Raw Previews: isvalid: ' . $valid, \OCP\Util::ERROR);
-		return $valid;
+		//$valid = $file->getSize() > 0;
+		//\OCP\Util::writeLog('mypreview', 'Camera Raw Previews: isvalid: ' . $valid, \OCP\Util::ERROR);
+		return true;
 	}
-   
+
 }
