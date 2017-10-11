@@ -6,6 +6,6 @@
     <span id="exiftoolPositionSettingsMsg" class="msg"></span>
     <br />
     <input type="text" name='exiftoolPosition' id="exiftoolPosition" value='<?php p($_['exiftoolPosition']) ?>' />
-    <input type="hidden" value="<?php p($_['requesttoken']); ?>" name="requesttoken" />
+    <input type="hidden" value="<?php p($_['requesttoken']); ?>" name="exifreqtoken" />
     <input type="submit" id="submitExiftoolPosition" value="<?php p($l->t( 'Save' )); ?>"/>
 </div>
