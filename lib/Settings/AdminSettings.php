@@ -11,8 +11,12 @@ class AdminSettings implements ISettings {
     /** @var IConfig */
 	private $config;
 
-	public function __construct(IConfig $config) {
+    /** @var IRequest */
+	private $request;
+
+	public function __construct(IConfig $config, IRequest $request) {
 		$this->config = $config;
+        $this->request = $request;
 	}
 
 	/**
@@ -20,10 +24,15 @@ class AdminSettings implements ISettings {
 	 */
 	public function getForm() {
 
+        $from_helper_pos = \OC_Helper::findBinaryPath('exiftool');
+        $default_pos = '/usr/local/bin/exiftool';
         $exiftool_pos = $this->config->getAppValue('rawpreview', 'exiftool');
+        if(empty($exiftool_pos)) {
+            $exiftool_pos = (empty($from_helper_pos)) ? $default_pos : $from_helper_pos;
+        }
 
 		$parameters = [
-			'exiftoolPosition'             => $exiftool_pos,
+			'exiftoolPosition' => $exiftool_pos,
 		];
 		return new TemplateResponse('rawpreview', 'admin', $parameters, '');
 	}
