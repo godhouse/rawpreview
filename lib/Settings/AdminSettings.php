@@ -25,7 +25,7 @@ class AdminSettings implements ISettings {
 	 */
 	public function getForm() {
 
-        $exiftool_pos = $this->config->getSystemValue('rawpreview', 'exiftool');
+        $exiftool_pos = $this->config->getSystemValue('rawpreview_exiftool');
         $from_helper_pos = \OC_Helper::findBinaryPath('exiftool');
         $default_pos = '';
         if(empty($exiftool_pos)) {
