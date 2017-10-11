@@ -7,6 +7,9 @@ use OCP\IConfig;
 use OCP\Settings\ISettings;
 
 class AdminSettings implements ISettings {
+
+    private $config;
+    
     public function __construct(IConfig $config) {
             $this->config = $config;
     }
