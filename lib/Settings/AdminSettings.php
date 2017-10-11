@@ -2,10 +2,10 @@
 
 namespace OCA\RawPreview\Settings;
 
-use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IConfig;
-use OCP\Settings\ISettings;
 use OCP\IRequest;
+use OCP\AppFramework\Http\TemplateResponse;
+use OCP\Settings\ISettings;
 
 class AdminSettings implements ISettings {
 
@@ -25,9 +25,9 @@ class AdminSettings implements ISettings {
 	 */
 	public function getForm() {
 
+        $exiftool_pos = $this->config->getAppValue('rawpreview', 'exiftool');
         $from_helper_pos = \OC_Helper::findBinaryPath('exiftool');
         $default_pos = '';
-        $exiftool_pos = $this->config->getAppValue('rawpreview', 'exiftool');
         if(empty($exiftool_pos)) {
             $exiftool_pos = (empty($from_helper_pos)) ? $default_pos : $from_helper_pos;
         }
