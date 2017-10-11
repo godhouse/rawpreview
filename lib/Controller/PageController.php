@@ -36,7 +36,7 @@ class PageController extends Controller {
 			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
 		} else {
 			return new JSONResponse([
-				'exiftool' => $exif
+				'exiftool' => $exiftool
 			]);
 		}
     }
