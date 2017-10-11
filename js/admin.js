@@ -38,3 +38,7 @@
 		}
 	}
 })();
+
+$(document).ready(function() {
+	OCA.RawPreview.Admin.initialize();
+});
