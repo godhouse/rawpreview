@@ -30,8 +30,8 @@ class PageController extends Controller {
 		return new TemplateResponse('camerarawpreviews', 'index');  // templates/index.php
 	}
 
-    public function setExif($exif){
-        $ret = $this->config->setAppValue('rawpreview', 'exiftool', $exif);
+    public function setExif($exiftool){
+        $ret = $this->config->setAppValue('rawpreview', 'exiftool', $exiftool);
 		if ($ret === false) {
 			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
 		} else {
