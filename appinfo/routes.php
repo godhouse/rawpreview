@@ -9,8 +9,6 @@
  */
 return [
     'routes' => [
-	   ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
-	   ['name' => 'page#do_echo', 'url' => '/echo', 'verb' => 'POST'],
        ['name' => 'page#setExif', 'url' => '/settings/setExif', 'verb' => 'POST'],
     ]
 ];

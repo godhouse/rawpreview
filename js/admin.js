@@ -23,7 +23,7 @@
 				url: OC.generateUrl('/apps/rawpreview/settings/setExif'),
 				type: 'POST',
 				data: {
-					maxUploadSize: $('#maxUploadSize').val()
+					exiftool: $('#exiftoolPosition').val()
 				}
 			});
 
