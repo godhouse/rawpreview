@@ -6,16 +6,16 @@ use Imagick;
 
 class Raw implements IProvider {
 
-    /**
-     * {@inheritDoc}
-     */
-    public function getMimeType() {
-        return '/image\/x-dcraw/';
-    }
+	/**
+	* {@inheritDoc}
+	*/
+	public function getMimeType() {
+		return '/image\/x-dcraw/';
+	}
 
-    /**
-     * {@inheritDoc}
-     */
+	/**
+	* {@inheritDoc}
+	*/
 	public function getThumbnail($path, $maxX, $maxY, $scalingup, $fileview) {
 		//get fileinfo
 		$fileInfo = $fileview->getFileInfo($path);
@@ -34,12 +34,12 @@ class Raw implements IProvider {
 			return false;
 		}
 
-        try {
-            $im = $this->getResizedPreview($tmpPath, $maxX, $maxY);
-        } catch (\Exception $e) {
-            \OCP\Util::writeLog('mypreview', 'Raw Preview: ' . $e->getmessage(), \OCP\Util::ERROR);
-            return false;
-        }
+		try {
+			$im = $this->getResizedPreview($tmpPath, $maxX, $maxY);
+		} catch (\Exception $e) {
+			\OCP\Util::writeLog('mypreview', 'Raw Preview: ' . $e->getmessage(), \OCP\Util::ERROR);
+    			return false;
+		}
 
 		$image = new \OC_Image();
 		$image->loadFromData($im);
@@ -53,43 +53,43 @@ class Raw implements IProvider {
 			return $image;
 		}
 
-        \OCP\Util::writeLog('mypreview', 'Raw Preview: Image not valid', \OCP\Util::ERROR);
+		\OCP\Util::writeLog('mypreview', 'Raw Preview: Image not valid', \OCP\Util::ERROR);
 		return false;
 	}
 
-    protected function getResizedPreview($tmpPath, $maxX, $maxY) {
+	protected function getResizedPreview($tmpPath, $maxX, $maxY) {
 		$rotationValues = [
 			1 => 0,
 			6 => 90,
 			8 => 270
 		];
 
-        $converter = \OC_Helper::findBinaryPath('exiftool');
-        if (empty($converter)) {
-			$converter = '/usr/local/bin/exiftool';
-        }
+		$converter = \OC_Helper::findBinaryPath('exiftool');
+		if (empty($converter)) {
+			$converter = \OC::$server->getConfig()->getSystemValue('rawpreview_exiftool', '/usr/local/bin/exiftool');
+		}
 
 		$imStr = shell_exec($converter . " -b -PreviewImage " . escapeshellarg($tmpPath));
 		$rotation = shell_exec($converter . " -n -Orientation " . escapeshellarg($tmpPath));
 
-        if(preg_match('/Orientation\s*:\s*(\d+)/', $rotation, $match)){
+		if(preg_match('/Orientation\s*:\s*(\d+)/', $rotation, $match)){
 			$rotation = $match[1];
 		} else $rotation = 1;
 
-        $im = new Imagick();
+		$im = new Imagick();
 		$im->readImageBlob($imStr);
 
-        if (!$im->valid()) {
+		if (!$im->valid()) {
 			\OCP\Util::writeLog('mypreview', 'Raw Preview: Failed conversion', \OCP\Util::ERROR);
-            return false;
-        }
-        $im = $this->resize($im, $maxX, $maxY);
+    			return false;
+		}
+		$im = $this->resize($im, $maxX, $maxY);
 		if($rotation != 1) $im->rotateImage('#000', $rotationValues[$rotation]);
 
-        return $im;
+		return $im;
 	}
 
-    protected function resize($im, $maxX, $maxY) {
+	protected function resize($im, $maxX, $maxY) {
 		list($previewWidth, $previewHeight) = array_values($im->getImageGeometry());
 		if ($previewWidth > $maxX || $previewHeight > $maxY) {
 			$im->resizeImage($maxX, $maxY, \imagick::FILTER_CATROM, 1, true);
@@ -97,9 +97,9 @@ class Raw implements IProvider {
 		return $im;
 	}
 
-    /**
-     * {@inheritDoc}
-     */
+	/**
+	* {@inheritDoc}
+	*/
 	public function isAvailable(\OCP\Files\FileInfo $file) {
 		return true;
 	}
