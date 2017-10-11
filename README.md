@@ -1,4 +1,4 @@
-# My Preview
+# Raw Preview
 Place this app in **nextcloud/apps/**
 
 ## Building the app

@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\MyPreview\AppInfo;
+namespace OCA\RawPreview\AppInfo;
 
 
 $previewManager = \OC::$server->getPreviewManager();

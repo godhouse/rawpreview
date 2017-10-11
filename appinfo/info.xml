@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
-    <id>mypreview</id>
-    <name>My Preview</name>
+    <id>rawpreview</id>
+    <name>Raw Preview</name>
     <summary>Preview non presenti di default</summary>
     <description><![CDATA[Preview non presenti di default]]></description>
     <licence>agpl</licence>
-    <author mail="godhouse78@gmail.com" homepage="https://godhouse78.hopto.org">Daniele Casadio</author>
+    <author mail="godhouse78@gmail.com" homepage="https://github.com/godhouse/rawpreview">Daniele Casadio</author>
     <version>0.0.1</version>
-    <namespace>MyPreview</namespace>
+    <namespace>RawPreview</namespace>
     <category>tools</category>
-    <bugs>https://godhouse78.hopto.org</bugs>
+    <bugs>https://github.com/godhouse/rawpreview/issues</bugs>
     <dependencies>
         <nextcloud min-version="12" max-version="13"/>
     </dependencies>

@@ -1,5 +1,5 @@
 <?php
-namespace OCA\MyPreview;
+namespace OCA\RawPreview;
 
 use OCP\Preview\IProvider;
 use Imagick;
