@@ -1,5 +1,5 @@
 <?php
-namespace OCA\Preview\Controller;
+namespace OCA\RawPreview\Controller;
 
 use OCP\IRequest;
 use OCP\AppFramework\Http\TemplateResponse;
