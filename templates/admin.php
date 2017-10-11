@@ -1,14 +1,10 @@
-<?php
-/** @var $_ array */
-
-?>
-
-<div id="rawpreview_settings" class="section">
-        <h2>Raw Preview</h2>
-
-        <h3>Exif Tool</h3>
-        <p>
-            <input type="text" class="rawpreview_exiftool" id="rawpreview_exiftool_position" name="rawpreview_exiftool_position" value="<?php p($_['exiftool_position']) ?>">
-        </p>
-
+<div class="section">
+    <h2><?php p($l->t('Raw Preview')); ?></h2>
+    <label for="exiftoolPosition"><?php p($l->t( 'Position of exiftool command' )); ?> </label>
+    <span id="exiftoolPositionSettingsMsg" class="msg"></span>
+    <br />
+    <input type="text" name='exiftoolPosition' id="exiftoolPosition" value='<?php p($_['exiftoolPosition']) ?>' />
+        <input type="submit" id="submitExiftoolPosition"
+               value="<?php p($l->t( 'Save' )); ?>"/>
+        <p><em><?php p($l->t('With PHP-FPM it might take 5 minutes for changes to be applied.')); ?></em></p>
 </div>
