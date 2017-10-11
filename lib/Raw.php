@@ -101,7 +101,6 @@ class Raw implements IProvider {
      * {@inheritDoc}
      */
 	public function isAvailable(\OCP\Files\FileInfo $file) {
-        \OCP\Util::writeLog('mypreview', 'Raw Preview: Failed conversion', \OCP\Util::ERROR);
 		return true;
 	}
 
