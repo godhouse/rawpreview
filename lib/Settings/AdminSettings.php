@@ -5,6 +5,7 @@ namespace OCA\RawPreview\Settings;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IConfig;
 use OCP\Settings\ISettings;
+use OCP\IRequest;
 
 class AdminSettings implements ISettings {
 
