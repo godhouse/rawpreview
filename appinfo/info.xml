@@ -9,6 +9,9 @@
     <author mail="godhouse78@gmail.com" homepage="https://github.com/godhouse/rawpreview">Daniele Casadio</author>
     <version>0.0.1</version>
     <namespace>RawPreview</namespace>
+    <types>
+        <filesystem/>
+    </types>
     <category>tools</category>
     <bugs>https://github.com/godhouse/rawpreview/issues</bugs>
     <dependencies>

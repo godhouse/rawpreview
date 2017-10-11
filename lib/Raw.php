@@ -30,14 +30,14 @@ class Raw implements IProvider {
 
 		$tmpPath = $fileview->toTmpFile($path);
 		if (!$tmpPath) {
-			\OCP\Util::writeLog('mypreview', 'Camera Raw Previews: Temporary copy failed', \OCP\Util::ERROR);
+			\OCP\Util::writeLog('mypreview', 'Raw Preview: Temporary copy failed', \OCP\Util::ERROR);
 			return false;
 		}
 
         try {
             $im = $this->getResizedPreview($tmpPath, $maxX, $maxY);
         } catch (\Exception $e) {
-            \OCP\Util::writeLog('mypreview', 'Camera Raw Previews: ' . $e->getmessage(), \OCP\Util::ERROR);
+            \OCP\Util::writeLog('mypreview', 'Raw Preview: ' . $e->getmessage(), \OCP\Util::ERROR);
             return false;
         }
 
@@ -53,7 +53,7 @@ class Raw implements IProvider {
 			return $image;
 		}
 
-        \OCP\Util::writeLog('mypreview', 'Camera Raw Previews: Image not valid', \OCP\Util::ERROR);
+        \OCP\Util::writeLog('mypreview', 'Raw Preview: Image not valid', \OCP\Util::ERROR);
 		return false;
 	}
 
@@ -80,7 +80,7 @@ class Raw implements IProvider {
 		$im->readImageBlob($imStr);
 
         if (!$im->valid()) {
-			\OCP\Util::writeLog('mypreview', 'Camera Raw Previews: Failed conversion', \OCP\Util::ERROR);
+			\OCP\Util::writeLog('mypreview', 'Raw Preview: Failed conversion', \OCP\Util::ERROR);
             return false;
         }
         $im = $this->resize($im, $maxX, $maxY);
@@ -101,6 +101,7 @@ class Raw implements IProvider {
      * {@inheritDoc}
      */
 	public function isAvailable(\OCP\Files\FileInfo $file) {
+        \OCP\Util::writeLog('mypreview', 'Raw Preview: Failed conversion', \OCP\Util::ERROR);
 		return true;
 	}
 
