@@ -15,12 +15,12 @@ class PageController extends Controller {
 		$this->config = $config;
 	}
 
-    /**
+	/**
 	 * @param string $maxUploadSize
 	 * @return JSONResponse
 	 */
-    public function setExif($exiftool){
-        $ret = $this->config->setAppValue('rawpreview', 'exiftool', $exiftool);
+	public function setExif($exiftool){
+		$ret = $this->config->setSystemValue('rawpreview', 'exiftool', $exiftool);
 		if ($ret === false) {
 			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
 		} else {
@@ -28,6 +28,6 @@ class PageController extends Controller {
 				'exiftool' => $exiftool
 			]);
 		}
-    }
+	}
 
 }
