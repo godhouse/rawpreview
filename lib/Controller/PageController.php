@@ -20,7 +20,7 @@ class PageController extends Controller {
 	 * @return JSONResponse
 	 */
 	public function setExif($exiftool){
-		$ret = $this->config->setSystemValue('rawpreview', 'exiftool', $exiftool);
+		$ret = $this->config->setSystemValue('rawpreview_exiftool', $exiftool);
 		if ($ret === false) {
 			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
 		} else {
