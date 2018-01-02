@@ -26,9 +26,9 @@ class AdminSettings implements ISettings {
 	public function getForm() {
 
 	    $values = [
-            "exiftool" => ($exiftool = \OC_Helper::findBinaryPath('exiftool')) ? $exiftool : $this->config->getAppValue('rawpreview', 'exiftool'),
-            "ffmpeg" => ($ffmpeg = \OC_Helper::findBinaryPath('ffmpeg')) ? $ffmpeg : $this->config->getAppValue('rawpreview', 'ffmpeg'),
-            "libreoffice" => ($libreoffice = \OC_Helper::findBinaryPath('libreoffice')) ? $libreoffice : $this->config->getAppValue('rawpreview', 'libreoffice')
+            "exiftool" => ($exiftool = $this->config->getAppValue('rawpreview', 'exiftool')) ? $exiftool : '/usr/local/bin/exiftool',
+            "ffmpeg" => ($ffmpeg = $this->config->getAppValue('rawpreview', 'ffmpeg')) ? $ffmpeg : '/usr/local/bin/ffmpeg',
+            "libreoffice" => ($libreoffice = $this->config->getAppValue('rawpreview', 'libreoffice')) ? $libreoffice : '/usr/local/bin/libreoffice'
         ];
 /*
         $exiftool_pos = $this->config->getSystemValue('rawpreview_exiftool');
