@@ -4,7 +4,7 @@ namespace OCA\RawPreview;
 
 use OCP\Preview\IProvider;
 
-class RawMovie extends IProvider {
+class RawMovie implements IProvider {
     /**
      * {@inheritDoc}
      */
@@ -48,7 +48,7 @@ class RawMovie extends IProvider {
      * @return bool|\OCP\IImage
      */
     private function generateThumbNail($maxX, $maxY, $absPath, $second) {
-        $ffmpegBinary = \OC::$server->getConfig()->getSystemValue('ffmpeg_libreoffice', '/usr/local/bin/ffmpeg');
+        $ffmpegBinary = \OC::$server->getConfig()->getSystemValue('rawpreview_ffmpeg', '/usr/local/bin/ffmpeg');
         $tmpPath = \OC::$server->getTempManager()->getTemporaryFile();
 
         $cmd = $ffmpegBinary . ' -y -ss ' . escapeshellarg($second) .

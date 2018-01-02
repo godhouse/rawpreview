@@ -2,7 +2,7 @@
 
 namespace OCA\RawPreview;
 
-class RawOffice extends IProvider {
+class RawOffice implements IProvider {
     private $cmd;
     /**
      * {@inheritDoc}

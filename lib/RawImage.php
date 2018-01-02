@@ -30,14 +30,14 @@ class RawImage implements IProvider {
 
 		$tmpPath = $fileview->toTmpFile($path);
 		if (!$tmpPath) {
-			\OCP\Util::writeLog('mypreview', 'Raw Preview: Temporary copy failed', \OCP\Util::ERROR);
+			\OCP\Util::writeLog('RawImage', 'Raw Preview: Temporary copy failed', \OCP\Util::ERROR);
 			return false;
 		}
 
 		try {
 			$im = $this->getResizedPreview($tmpPath, $maxX, $maxY);
 		} catch (\Exception $e) {
-			\OCP\Util::writeLog('mypreview', 'Raw Preview: ' . $e->getmessage(), \OCP\Util::ERROR);
+			\OCP\Util::writeLog('RawImage', 'Raw Preview: ' . $e->getmessage(), \OCP\Util::ERROR);
     			return false;
 		}
 
@@ -53,7 +53,7 @@ class RawImage implements IProvider {
 			return $image;
 		}
 
-		\OCP\Util::writeLog('mypreview', 'Raw Preview: Image not valid', \OCP\Util::ERROR);
+		\OCP\Util::writeLog('RawImage', 'Raw Preview: Image not valid', \OCP\Util::ERROR);
 		return false;
 	}
 
@@ -80,8 +80,8 @@ class RawImage implements IProvider {
 		$im->readImageBlob($imStr);
 
 		if (!$im->valid()) {
-			\OCP\Util::writeLog('mypreview', 'Raw Preview: Failed conversion', \OCP\Util::ERROR);
-    			return false;
+			\OCP\Util::writeLog('RawImage', 'Raw Preview: Failed conversion', \OCP\Util::ERROR);
+			return false;
 		}
 		$im = $this->resize($im, $maxX, $maxY);
 		if($rotation != 1) $im->rotateImage('#000', $rotationValues[$rotation]);
