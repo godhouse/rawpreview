@@ -2,6 +2,8 @@
 
 namespace OCA\RawPreview;
 
+use OCP\Preview\IProvider;
+
 class RawOffice implements IProvider {
     private $cmd;
     /**
