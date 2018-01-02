@@ -4,7 +4,7 @@ namespace OCA\RawPreview;
 
 use OCP\Preview\IProvider;
 
-class RawOffice implements IProvider {
+class RawPDF implements IProvider {
     private $cmd;
     private $gs;
     /**
@@ -18,22 +18,11 @@ class RawOffice implements IProvider {
         $absPath = $fileview->toTmpFile($path);
         $tmpDir = \OC::$server->getTempManager()->getTempBaseDir();
 
-//        $defaultParameters = ' -env:UserInstallation=file://' . escapeshellarg($tmpDir . '/owncloud-' . \OC_Util::getInstanceId() . '/') . ' --headless --nologo --nofirststartwizard --invisible --norestore --convert-to pdf --outdir ';
-//        $clParameters = \OC::$server->getConfig()->getSystemValue('preview_office_cl_parameters', $defaultParameters);
-
-        $clParameters =
-            ' -env:UserInstallation=file://' . escapeshellarg($tmpDir . '/owncloud-' .
-            \OC_Util::getInstanceId() . '/') .
-            ' --headless --nologo --nofirststartwizard --invisible --norestore --convert-to pdf --outdir ';
-
-        $exec = $this->cmd . $clParameters . escapeshellarg($tmpDir) . ' ' . escapeshellarg($absPath);
-        shell_exec($exec);
-
         //create imagick object from pdf
         $pdfPreview = null;
 
         list($dirname, , $extension, $filename) = array_values(pathinfo($absPath));
-        $pdfPreview = $tmpDir . '/' . $filename . '.pdf';
+        $pdfPreview = $tmpDir . '/' . $filename;
 
         $exec = $this->gs . " -dNOPAUSE -sDEVICE=jpeg -r75 -dJPEGQ=60  -dFirstPage=1 -dLastPage=1 -sOutputFile=$pdfPreview.jpg $pdfPreview -dBATCH";
         shell_exec($exec);
@@ -67,10 +56,8 @@ class RawOffice implements IProvider {
     }
 
     private function initCmd() {
-        $cmd = \OC::$server->getConfig()->getSystemValue('rawpreview_libreoffice', '/usr/local/bin/libreoffice');
         $gs = \OC::$server->getConfig()->getSystemValue('rawpreview_ghostscript', '/usr/local/bin/gs');
 
-        $this->cmd = $cmd;
         $this->gs = $gs;
     }
 
@@ -78,7 +65,7 @@ class RawOffice implements IProvider {
      * {@inheritDoc}
      */
     public function getMimeType() {
-        return '/application\/vnd.oasis.opendocument.*/';
+        return '/application\/pdf/';
     }
 
     public function isAvailable(\OCP\Files\FileInfo $file) {
