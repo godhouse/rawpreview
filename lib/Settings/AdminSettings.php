@@ -25,16 +25,25 @@ class AdminSettings implements ISettings {
 	 */
 	public function getForm() {
 
+	    $values = [
+            "exiftool" => ($exiftool = \OC_Helper::findBinaryPath('exiftool')) ? $exiftool : $this->config->getAppValue('rawpreview', 'exiftool'),
+            "ffmpeg" => ($ffmpeg = \OC_Helper::findBinaryPath('ffmpeg')) ? $ffmpeg : $this->config->getAppValue('rawpreview', 'ffmpeg'),
+            "libreoffice" => ($libreoffice = \OC_Helper::findBinaryPath('libreoffice')) ? $libreoffice : $this->config->getAppValue('rawpreview', 'libreoffice')
+        ];
+/*
         $exiftool_pos = $this->config->getSystemValue('rawpreview_exiftool');
         $from_helper_pos = \OC_Helper::findBinaryPath('exiftool');
         $default_pos = '';
         if(empty($exiftool_pos)) {
 		$exiftool_pos = (empty($from_helper_pos)) ? $default_pos : $from_helper_pos;
         }
+*/
+        $parameters = [
+            'exiftoolPosition' => $values['exiftool'],
+            'ffmpegPosition' => $values['ffmpeg'],
+            'libreofficePosition' => $values['libreoffice']
+        ];
 
-		$parameters = [
-			'exiftoolPosition' => $exiftool_pos,
-		];
 		return new TemplateResponse('rawpreview', 'admin', $parameters, '');
 	}
 
@@ -43,7 +52,7 @@ class AdminSettings implements ISettings {
      * @return string the section ID, e.g. 'sharing'
      */
     public function getSection() {
-            return 'additional';
+        return 'additional';
     }
 
     /**
@@ -52,7 +61,7 @@ class AdminSettings implements ISettings {
      * priority values. It is required to return a value between 0 and 100.
      */
     public function getPriority() {
-            return 50;
+        return 50;
     }
 
 

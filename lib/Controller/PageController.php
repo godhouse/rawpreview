@@ -19,15 +19,26 @@ class PageController extends Controller {
 	 * @param string $maxUploadSize
 	 * @return JSONResponse
 	 */
-	public function setExif($exiftool){
+	public function setExif($exiftool, $ffmpeg, $libreoffice){
 		$ret = $this->config->setSystemValue('rawpreview_exiftool', $exiftool);
+        if ($ret === false) {
+            return new JSONResponse([], Http::STATUS_BAD_REQUEST);
+        }
+        $ret = $this->config->setSystemValue('rawpreview_ffmpeg', $ffmpeg);
+        if ($ret === false) {
+            return new JSONResponse([], Http::STATUS_BAD_REQUEST);
+        }
+        $ret = $this->config->setSystemValue('rawpreview_libreoffice', $libreoffice);
 		if ($ret === false) {
 			return new JSONResponse([], Http::STATUS_BAD_REQUEST);
-		} else {
-			return new JSONResponse([
-				'exiftool' => $exiftool
-			]);
 		}
+
+		return new JSONResponse([
+				'exiftoolPosition' => $exiftool,
+				'libreofficePosition' => $libreoffice,
+				'ffmpegPosition' => $ffmpeg
+        ]);
+
 	}
 
 }

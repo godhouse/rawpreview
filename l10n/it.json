@@ -1,6 +1,8 @@
 { "translations": {
     "Raw Preview" : "Raw Preview",
     "Position of exiftool command" : "Posizione del comando exiftool",
+    "Position of ffmpeg command" : "Posizione del comando ffmpeg",
+    "Position of libreoffice command" : "Posizione del comando libreoffice",
     "Save" : "Salva",
     "Saved" : "Salvato",
     "Error" : "Errore"
