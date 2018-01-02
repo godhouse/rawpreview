@@ -53,4 +53,17 @@ class RawOffice implements IProvider {
 
         $this->cmd = $cmd;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getMimeType() {
+        return '/application\/vnd.oasis.opendocument.*/';
+    }
+
+    public function isAvailable(\OCP\Files\FileInfo $file) {
+        return true;
+    }
+
+
 }
