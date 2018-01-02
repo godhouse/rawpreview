@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="35c463ed-dad5-4d51-9c9b-3b30489309f9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/lib/RawOffice.php" afterPath="$PROJECT_DIR$/lib/RawOffice.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,8 +17,8 @@
       <file leaf-file-name="RawOffice.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/RawOffice.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="45" column="117" lean-forward="true" selection-start-line="45" selection-start-column="117" selection-end-line="45" selection-end-column="117" />
+            <state relative-caret-position="658">
+              <caret line="47" column="14" lean-forward="false" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -229,7 +230,7 @@
       <option name="presentableId" value="Default" />
       <updated>1514890336324</updated>
       <workItem from="1514890337519" duration="9607000" />
-      <workItem from="1514908849374" duration="12510000" />
+      <workItem from="1514908849374" duration="12634000" />
     </task>
     <task id="LOCAL-00001" summary="Added config for ffmpeg &amp; libreoffice">
       <created>1514892302281</created>
@@ -504,11 +505,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514921539352</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Added config for ffmpeg &amp; libreoffice">
+      <created>1514921932554</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1514921932554</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22117000" />
+    <option name="totallyTimeSpent" value="22241000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -761,8 +769,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/RawOffice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="45" column="117" lean-forward="true" selection-start-line="45" selection-start-column="117" selection-end-line="45" selection-end-column="117" />
+        <state relative-caret-position="658">
+          <caret line="47" column="14" lean-forward="false" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
           <folding />
         </state>
       </provider>

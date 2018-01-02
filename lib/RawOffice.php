@@ -45,7 +45,7 @@ class RawOffice implements IProvider {
             $overlay = new \Imagick();
             $overlay->readImage($_SERVER['DOCUMENT_ROOT'] . \OCP\Util::imagePath('rawpreview', $extension . '.png'));
             $pdf->compositeImage($overlay, \Imagick::COMPOSITE_DIFFERENCE, 0, 0);
-            $pdf = new \imagick($pdfPreview . '[0]');
+            //$pdf = new \imagick($pdfPreview . '[0]');
             //$pdf->setImageFormat('jpg');
         } catch (\Exception $e) {
             unlink($absPath);
