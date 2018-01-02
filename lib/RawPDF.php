@@ -5,14 +5,13 @@ namespace OCA\RawPreview;
 use OCP\Preview\IProvider;
 
 class RawPDF implements IProvider {
-    private $cmd;
     private $gs;
     /**
      * {@inheritDoc}
      */
     public function getThumbnail($path, $maxX, $maxY, $scalingup, $fileview) {
         $this->initCmd();
-        if (is_null($this->cmd)) {
+        if (is_null($this->gs)) {
             return false;
         }
         $absPath = $fileview->toTmpFile($path);
@@ -21,15 +20,15 @@ class RawPDF implements IProvider {
         //create imagick object from pdf
         $pdfPreview = null;
 
-        list($dirname, , $extension, $filename) = array_values(pathinfo($absPath));
-        $pdfPreview = $tmpDir . '/' . $filename;
+        list($dirname, , , $filename) = array_values(pathinfo($absPath));
+        $pdfPreview = $tmpDir . '/' . $filename . '.jpg';
 
-        $exec = $this->gs . " -dNOPAUSE -sDEVICE=jpeg -r75 -dJPEGQ=60  -dFirstPage=1 -dLastPage=1 -sOutputFile=" . escapeshellarg($pdfPreview . ".jpg") . " " . escapeshellarg($absPath) . " -dBATCH";
+        $exec = $this->gs . " -dNOPAUSE -sDEVICE=jpeg -r75 -dJPEGQ=60  -dFirstPage=1 -dLastPage=1 -sOutputFile=" . escapeshellarg($pdfPreview) . " " . escapeshellarg($absPath) . " -dBATCH";
         shell_exec($exec);
 
         try {
             $pdf = new \Imagick();
-            $pdf->readImage($pdfPreview . ".jpg");
+            $pdf->readImage($pdfPreview);
             //$pdf->resizeImage(32,32,Imagick::FILTER_LANCZOS,1);
             //$overlay = new \Imagick();
             //$overlay->readImage("../img/pdf.png");
@@ -39,7 +38,7 @@ class RawPDF implements IProvider {
         } catch (\Exception $e) {
             unlink($absPath);
             unlink($pdfPreview);
-            unlink($pdfPreview . ".jpg");
+            //unlink($pdfPreview . ".jpg");
             \OCP\Util::writeLog('core', $e->getMessage(), \OCP\Util::ERROR);
             return false;
         }
@@ -47,7 +46,7 @@ class RawPDF implements IProvider {
         $image->loadFromData($pdf);
         unlink($absPath);
         unlink($pdfPreview);
-        unlink($pdfPreview . ".jpg");
+        //unlink($pdfPreview . ".jpg");
         if ($image->valid()) {
             $image->scaleDownToFit($maxX, $maxY);
             return $image;
