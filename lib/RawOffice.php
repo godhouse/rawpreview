@@ -56,11 +56,6 @@ class RawOffice implements IProvider {
     private function initCmd() {
         $cmd = \OC::$server->getConfig()->getSystemValue('rawpreview_libreoffice', '/usr/local/bin/libreoffice');
 
-        $whichLibreOffice = shell_exec('command -v libreoffice');
-        if ($cmd === '' && !empty($whichLibreOffice)) {
-            $cmd = 'libreoffice';
-        }
-
         $this->cmd = $cmd;
     }
 
