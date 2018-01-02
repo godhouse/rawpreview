@@ -25,7 +25,8 @@
 				data: {
 					exiftool: $('#exiftoolPosition').val(),
                     ffmpeg: $('#ffmpegPosition').val(),
-                    libreoffice: $('#libreofficePosition').val()
+                    libreoffice: $('#libreofficePosition').val(),
+                    ghostscript: $('#ghostscriptPosition').val()
 				}
 			});
 
@@ -33,6 +34,7 @@
 				$('#exiftoolPosition').val(data.exiftool);
                 $('#ffmpegPosition').val(data.ffmpeg);
                 $('#libreofficePosition').val(data.libreoffice);
+                $('#ghostscriptPosition').val(data.libreoffice);
 				OC.msg.finishedSuccess('#rawPreviewSettingsMsg', 'Saved');
 			});
 

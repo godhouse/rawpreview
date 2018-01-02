@@ -25,23 +25,11 @@ class AdminSettings implements ISettings {
 	 */
 	public function getForm() {
 
-	    $values = [
-            "exiftool" => ($exiftool = $this->config->getAppValue('rawpreview', 'exiftool')) ? $exiftool : '/usr/local/bin/exiftool',
-            "ffmpeg" => ($ffmpeg = $this->config->getAppValue('rawpreview', 'ffmpeg')) ? $ffmpeg : '/usr/local/bin/ffmpeg',
-            "libreoffice" => ($libreoffice = $this->config->getAppValue('rawpreview', 'libreoffice')) ? $libreoffice : '/usr/local/bin/libreoffice'
-        ];
-/*
-        $exiftool_pos = $this->config->getSystemValue('rawpreview_exiftool');
-        $from_helper_pos = \OC_Helper::findBinaryPath('exiftool');
-        $default_pos = '';
-        if(empty($exiftool_pos)) {
-		$exiftool_pos = (empty($from_helper_pos)) ? $default_pos : $from_helper_pos;
-        }
-*/
         $parameters = [
-            'exiftoolPosition' => $values['exiftool'],
-            'ffmpegPosition' => $values['ffmpeg'],
-            'libreofficePosition' => $values['libreoffice']
+            "exiftoolPosition" => ($exiftool = $this->config->getAppValue('rawpreview', 'exiftool')) ? $exiftool : '/usr/local/bin/exiftool',
+            "ffmpegPosition" => ($ffmpeg = $this->config->getAppValue('rawpreview', 'ffmpeg')) ? $ffmpeg : '/usr/local/bin/ffmpeg',
+            "libreofficePosition" => ($libreoffice = $this->config->getAppValue('rawpreview', 'libreoffice')) ? $libreoffice : '/usr/local/bin/libreoffice',
+            "ghostscriptPosition" => ($ghostscript = $this->config->getAppValue('rawpreview', 'ghostscript')) ? $libreoffice : '/usr/local/bin/gs'
         ];
 
 		return new TemplateResponse('rawpreview', 'admin', $parameters, '');

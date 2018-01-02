@@ -14,6 +14,10 @@
     <br />
     <input type="text" name='libreofficePosition' id="libreofficePosition" value='<?php p($_['libreofficePosition']) ?>' />
     <br />
+    <label for="ghostscriptPosition"><?php p($l->t( 'Position of ghostscript command' )); ?> </label>
+    <br />
+    <input type="text" name='ghostscriptPosition' id="ghostscriptPosition" value='<?php p($_['ghostscriptPosition']) ?>' />
+    <br />
     <input type="submit" id="submitRawPreview" value="<?php p($l->t( 'Save' )); ?>" />
     <span id="rawPreviewSettingsMsg" class="msg"></span>
 </div>
