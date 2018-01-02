@@ -32,10 +32,10 @@ class RawOffice implements IProvider {
         //create imagick object from pdf
         $pdfPreview = null;
 
-        list($dirname, , , $filename) = array_values(pathinfo($absPath));
+        list($dirname, , $extension, $filename) = array_values(pathinfo($absPath));
         $pdfPreview = $tmpDir . '/' . $filename . '.pdf';
 
-        $exec = $this->gs . " -dNOPAUSE -sDEVICE=jpeg -r200 -dJPEGQ=60  -dFirstPage=1 -dLastPage=1 -sOutputFile=$pdfPreview.jpg $pdfPreview -dBATCH";
+        $exec = $this->gs . " -dNOPAUSE -sDEVICE=jpeg -r75 -dJPEGQ=60  -dFirstPage=1 -dLastPage=1 -sOutputFile=$pdfPreview.jpg $pdfPreview -dBATCH";
         shell_exec($exec);
 
         try {
@@ -43,6 +43,7 @@ class RawOffice implements IProvider {
             $pdfPreview = $dirname . '/' . $filename . '.pdf';
             $pdf = new \Imagick();
             $pdf->readImage($pdfPreview . ".jpg");
+            $pdf->cropThumbnailImage(32, 32);
             //$pdf = new \imagick($pdfPreview . '[0]');
             //$pdf->setImageFormat('jpg');
         } catch (\Exception $e) {
