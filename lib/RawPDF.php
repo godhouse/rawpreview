@@ -18,7 +18,7 @@ class RawPDF implements IProvider {
         $tmpDir = \OC::$server->getTempManager()->getTempBaseDir();
 
         $folder = \OC::$server->getAppFolder();
-        // \OCP\Util::writeLog('core', $folder, \OCP\Util::ERROR);
+        \OCP\Util::writeLog('core', "folder " . $folder, \OCP\Util::ERROR);
         //create imagick object from pdf
         $pdfPreview = null;
 

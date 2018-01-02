@@ -27,8 +27,8 @@
       <file leaf-file-name="RawPDF.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/RawPDF.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+            <state relative-caret-position="340">
+              <caret line="20" column="48" lean-forward="false" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -242,7 +242,7 @@
       <option name="presentableId" value="Default" />
       <updated>1514890336324</updated>
       <workItem from="1514890337519" duration="9607000" />
-      <workItem from="1514908849374" duration="8940000" />
+      <workItem from="1514908849374" duration="9258000" />
     </task>
     <task id="LOCAL-00001" summary="Added config for ffmpeg &amp; libreoffice">
       <created>1514892302281</created>
@@ -440,11 +440,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514917807351</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added config for ffmpeg &amp; libreoffice">
+      <created>1514918360959</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1514918360959</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18547000" />
+    <option name="totallyTimeSpent" value="18865000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -689,8 +696,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/RawPDF.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+        <state relative-caret-position="340">
+          <caret line="20" column="48" lean-forward="false" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
           <folding />
         </state>
       </provider>
