@@ -9,7 +9,7 @@
     <author mail="godhouse78@gmail.com" homepage="https://github.com/godhouse/rawpreview">Daniele Casadio</author>
     <repository type="git">https://github.com/godhouse/rawpreview.git</repository>
     <website>https://github.com/godhouse/rawpreview</website>
-    <version>0.1.9</version>
+    <version>0.2.0</version>
     <namespace>RawPreview</namespace>
     <types>
         <filesystem/>
