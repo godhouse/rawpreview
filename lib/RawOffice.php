@@ -16,10 +16,18 @@ class RawOffice implements IProvider {
         }
         $absPath = $fileview->toTmpFile($path);
         $tmpDir = \OC::$server->getTempManager()->getTempBaseDir();
-        $defaultParameters = ' -env:UserInstallation=file://' . escapeshellarg($tmpDir . '/owncloud-' . \OC_Util::getInstanceId() . '/') . ' --headless --nologo --nofirststartwizard --invisible --norestore --convert-to pdf --outdir ';
-        $clParameters = \OC::$server->getConfig()->getSystemValue('preview_office_cl_parameters', $defaultParameters);
+
+//        $defaultParameters = ' -env:UserInstallation=file://' . escapeshellarg($tmpDir . '/owncloud-' . \OC_Util::getInstanceId() . '/') . ' --headless --nologo --nofirststartwizard --invisible --norestore --convert-to pdf --outdir ';
+//        $clParameters = \OC::$server->getConfig()->getSystemValue('preview_office_cl_parameters', $defaultParameters);
+
+        $clParameters =
+            ' -env:UserInstallation=file://' . escapeshellarg($tmpDir . '/owncloud-' .
+            \OC_Util::getInstanceId() . '/') .
+            ' --headless --nologo --nofirststartwizard --invisible --norestore --convert-to pdf --outdir ';
+
         $exec = $this->cmd . $clParameters . escapeshellarg($tmpDir) . ' ' . escapeshellarg($absPath);
         shell_exec($exec);
+
         //create imagick object from pdf
         $pdfPreview = null;
         try {
