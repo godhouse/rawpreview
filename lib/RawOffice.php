@@ -32,7 +32,7 @@ class RawOffice implements IProvider {
         //create imagick object from pdf
         $pdfPreview = null;
 
-        list($dirname, , $extension, $filename) = array_values(pathinfo($absPath));
+        list($dirname, , , $filename) = array_values(pathinfo($absPath));
         $pdfPreview = $tmpDir . '/' . $filename . '.pdf';
 
         $exec = $this->gs . " -dNOPAUSE -sDEVICE=jpeg -r75 -dJPEGQ=60  -dFirstPage=1 -dLastPage=1 -sOutputFile=$pdfPreview.jpg $pdfPreview -dBATCH";
@@ -41,10 +41,10 @@ class RawOffice implements IProvider {
         try {
             $pdf = new \Imagick();
             $pdf->readImage($pdfPreview . ".jpg");
-            $pdf->resizeImage(32,32,Imagick::FILTER_LANCZOS,1);
-            $overlay = new \Imagick();
-            $overlay->readImage("../img/$extension.png");
-            $pdf->compositeImage($overlay, \Imagick::COMPOSITE_OVER, 0, 0);
+            //$pdf->resizeImage(32,32,Imagick::FILTER_LANCZOS,1);
+            //$overlay = new \Imagick();
+            //$overlay->readImage("../img/$extension.png");
+            //$pdf->compositeImage($overlay, \Imagick::COMPOSITE_OVER, 0, 0);
             //$pdf = new \imagick($pdfPreview . '[0]');
             //$pdf->setImageFormat('jpg');
         } catch (\Exception $e) {
