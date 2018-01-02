@@ -28,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/lib/RawPDF.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -230,7 +230,7 @@
       <option name="presentableId" value="Default" />
       <updated>1514890336324</updated>
       <workItem from="1514890337519" duration="9607000" />
-      <workItem from="1514908849374" duration="10242000" />
+      <workItem from="1514908849374" duration="10700000" />
     </task>
     <task id="LOCAL-00001" summary="Added config for ffmpeg &amp; libreoffice">
       <created>1514892302281</created>
@@ -463,11 +463,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514919383720</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Added config for ffmpeg &amp; libreoffice">
+      <created>1514919664296</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1514919664296</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19849000" />
+    <option name="totallyTimeSpent" value="20307000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -713,7 +720,7 @@
     <entry file="file://$PROJECT_DIR$/lib/RawPDF.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
