@@ -41,7 +41,7 @@ class RawOffice implements IProvider {
         try {
             $pdf = new \Imagick();
             $pdf->readImage($pdfPreview . ".jpg");
-            $pdf->resizeImage(32,32,Imagick::FILTER_LANCZOS,1);
+            $pdf->resizeImage(32,32,\Imagick::FILTER_LANCZOS,1);
             $overlay = new \Imagick();
             $overlay->readImage($_SERVER['DOCUMENT_ROOT'] . \OCP\Util::imagePath('rawpreview', $extension . '.png'));
             $pdf->compositeImage($overlay, \Imagick::COMPOSITE_DIFFERENCE, 0, 0);
