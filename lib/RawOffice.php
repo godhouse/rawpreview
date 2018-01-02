@@ -33,7 +33,9 @@ class RawOffice implements IProvider {
         try {
             list($dirname, , , $filename) = array_values(pathinfo($absPath));
             $pdfPreview = $dirname . '/' . $filename . '.pdf';
-            $pdf = new \imagick($pdfPreview . '[0]');
+            $pdf = new \Imagick();
+            $pdf->readImage($pdfPreview . "[0]");
+            //$pdf = new \imagick($pdfPreview . '[0]');
             $pdf->setImageFormat('jpg');
         } catch (\Exception $e) {
             unlink($absPath);
