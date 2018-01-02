@@ -18,8 +18,8 @@ class RawOffice implements IProvider {
         $absPath = $fileview->toTmpFile($path);
         $tmpDir = \OC::$server->getTempManager()->getTempBaseDir();
 
-//        $defaultParameters = ' -env:UserInstallation=file://' . escapeshellarg($tmpDir . '/owncloud-' . \OC_Util::getInstanceId() . '/') . ' --headless --nologo --nofirststartwizard --invisible --norestore --convert-to pdf --outdir ';
-//        $clParameters = \OC::$server->getConfig()->getSystemValue('preview_office_cl_parameters', $defaultParameters);
+        $info = pathinfo($path);
+        $extension = $info['extension'];
 
         $clParameters =
             ' -env:UserInstallation=file://' . escapeshellarg($tmpDir . '/owncloud-' .
@@ -41,11 +41,11 @@ class RawOffice implements IProvider {
         try {
             $pdf = new \Imagick();
             $pdf->readImage($pdfPreview . ".jpg");
-            //$pdf->resizeImage(32,32,Imagick::FILTER_LANCZOS,1);
-            //$overlay = new \Imagick();
-            //$overlay->readImage("../img/$extension.png");
-            //$pdf->compositeImage($overlay, \Imagick::COMPOSITE_OVER, 0, 0);
-            //$pdf = new \imagick($pdfPreview . '[0]');
+            $pdf->resizeImage(32,32,Imagick::FILTER_LANCZOS,1);
+            $overlay = new \Imagick();
+            $overlay->readImage($_SERVER['DOCUMENT_ROOT'] . \OCP\Util::imagePath('rawpreview', $extension . '.png'));
+            $pdf->compositeImage($overlay, \Imagick::COMPOSITE_OVER, 0, 0);
+            $pdf = new \imagick($pdfPreview . '[0]');
             //$pdf->setImageFormat('jpg');
         } catch (\Exception $e) {
             unlink($absPath);
