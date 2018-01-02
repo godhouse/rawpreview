@@ -13,27 +13,31 @@
 	 */
 	OCA.RawPreview.Admin = {
 		initialize: function() {
-			$('#submitExiftoolPosition').on('click', _.bind(this._onClickSubmitExifTool, this));
+			$('#submitRawPreview').on('click', _.bind(this._onClickSubmitRawPreview, this));
 		},
 
-		_onClickSubmitExifTool: function () {
-			OC.msg.startSaving('#exiftoolPositionSettingsMsg');
+		_onClickSubmitRawPreview: function () {
+			OC.msg.startSaving('#rawPreviewSettingsMsg');
 
 			var request = $.ajax({
 				url: OC.generateUrl('/apps/rawpreview/settings/setExif'),
 				type: 'POST',
 				data: {
-					exiftool: $('#exiftoolPosition').val()
+					exiftool: $('#exiftoolPosition').val(),
+                    ffmpeg: $('#ffmpegPosition').val(),
+                    libreoffice: $('#libreofficePosition').val()
 				}
 			});
 
 			request.done(function (data) {
 				$('#exiftoolPosition').val(data.exiftoolPosition);
-				OC.msg.finishedSuccess('#exiftoolPositionSettingsMsg', 'Saved');
+                $('#ffmpegPosition').val(data.ffmpegPosition);
+                $('#libreofficePosition').val(data.libreofficePosition);
+				OC.msg.finishedSuccess('#rawPreviewSettingsMsg', 'Saved');
 			});
 
 			request.fail(function () {
-				OC.msg.finishedError('#exiftoolPositionSettingsMsg', 'Error');
+				OC.msg.finishedError('#rawPreviewSettingsMsg', 'Error');
 			});
 		}
 	}
