@@ -30,9 +30,9 @@
 			});
 
 			request.done(function (data) {
-				$('#exiftoolPosition').val(data.exiftoolPosition);
-                $('#ffmpegPosition').val(data.ffmpegPosition);
-                $('#libreofficePosition').val(data.libreofficePosition);
+				$('#exiftoolPosition').val(data.exiftool);
+                $('#ffmpegPosition').val(data.ffmpeg);
+                $('#libreofficePosition').val(data.libreoffice);
 				OC.msg.finishedSuccess('#rawPreviewSettingsMsg', 'Saved');
 			});
 
