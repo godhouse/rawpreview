@@ -4,7 +4,7 @@ namespace OCA\RawPreview;
 use OCP\Preview\IProvider;
 use Imagick;
 
-class Raw implements IProvider {
+class RawImage implements IProvider {
 
 	/**
 	* {@inheritDoc}
