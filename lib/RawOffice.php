@@ -6,6 +6,7 @@ use OCP\Preview\IProvider;
 
 class RawOffice implements IProvider {
     private $cmd;
+    private $gs;
     /**
      * {@inheritDoc}
      */
@@ -30,13 +31,20 @@ class RawOffice implements IProvider {
 
         //create imagick object from pdf
         $pdfPreview = null;
+
+        list($dirname, , , $filename) = array_values(pathinfo($absPath));
+        $pdfPreview = $dirname . '/' . $filename . '.pdf';
+
+        $exec = $this->gs . " -dNOPAUSE -sDEVICE=jpeg -r200 -dJPEGQ=60  -dFirstPage=1 -dLastPage=1 -sOutputFile=$pdfPreview.jpg $pdfPreview -dBATCH";
+        shell_exec($exec);
+
         try {
             list($dirname, , , $filename) = array_values(pathinfo($absPath));
             $pdfPreview = $dirname . '/' . $filename . '.pdf';
             $pdf = new \Imagick();
-            $pdf->readImage($pdfPreview . "[0]");
+            $pdf->readImage($pdfPreview . ".jpg");
             //$pdf = new \imagick($pdfPreview . '[0]');
-            $pdf->setImageFormat('jpg');
+            //$pdf->setImageFormat('jpg');
         } catch (\Exception $e) {
             unlink($absPath);
             unlink($pdfPreview);
@@ -57,6 +65,7 @@ class RawOffice implements IProvider {
         $cmd = \OC::$server->getConfig()->getSystemValue('rawpreview_libreoffice', '/usr/local/bin/libreoffice');
 
         $this->cmd = $cmd;
+        $this->gs = '/usr/local/bin/gs';
     }
 
     /**
