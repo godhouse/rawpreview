@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="35c463ed-dad5-4d51-9c9b-3b30489309f9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/lib/RawOffice.php" afterPath="$PROJECT_DIR$/lib/RawOffice.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -243,7 +242,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1514890336324</updated>
-      <workItem from="1514890337519" duration="9590000" />
+      <workItem from="1514890337519" duration="9607000" />
     </task>
     <task id="LOCAL-00001" summary="Added config for ffmpeg &amp; libreoffice">
       <created>1514892302281</created>
@@ -343,11 +342,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514906213138</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added config for ffmpeg &amp; libreoffice">
+      <created>1514906915168</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1514906915168</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9590000" />
+    <option name="totallyTimeSpent" value="9607000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-3" width="1920" height="1083" extended-state="6" />
