@@ -19,3 +19,4 @@ $previewManager->registerProvider('/application\/vnd.oasis.opendocument.*/', fun
 $previewManager->registerProvider('/application\/msword/', function() { return new \OCA\RawPreview\RawMSOfficeDoc; });
 $previewManager->registerProvider('/application\/vnd.ms-.*/', function() { return new \OCA\RawPreview\RawMSOffice2003; });
 $previewManager->registerProvider('/application\/vnd.openxmlformats-officedocument.*/', function() { return new \OCA\RawPreview\RawMSOffice2007; });
+$previewManager->registerProvider('/application\/pdf/', function() { return new \OCA\RawPreview\RawPDF; });
