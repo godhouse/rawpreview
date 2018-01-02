@@ -33,7 +33,7 @@ class RawOffice implements IProvider {
         $pdfPreview = null;
 
         list($dirname, , , $filename) = array_values(pathinfo($absPath));
-        $pdfPreview = $dirname . '/' . $filename . '.pdf';
+        $pdfPreview = $tmpDir . '/' . $filename . '.pdf';
 
         $exec = $this->gs . " -dNOPAUSE -sDEVICE=jpeg -r200 -dJPEGQ=60  -dFirstPage=1 -dLastPage=1 -sOutputFile=$pdfPreview.jpg $pdfPreview -dBATCH";
         shell_exec($exec);
