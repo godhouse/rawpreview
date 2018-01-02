@@ -47,7 +47,7 @@ class RawMovie implements IProvider {
      * @param int $second
      * @return bool|\OCP\IImage
      */
-    private function generateThumbNail($maxX, $maxY, $absPath, $second) {
+    protected function generateThumbNail($maxX, $maxY, $absPath, $second) {
         $ffmpegBinary = \OC::$server->getConfig()->getSystemValue('rawpreview_ffmpeg', '/usr/local/bin/ffmpeg');
         $tmpPath = \OC::$server->getTempManager()->getTemporaryFile();
 
@@ -70,4 +70,9 @@ class RawMovie implements IProvider {
         unlink($tmpPath);
         return false;
     }
+
+    public function isAvailable(\OCP\Files\FileInfo $file) {
+        return true;
+    }
+
 }
