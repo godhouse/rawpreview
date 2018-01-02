@@ -17,7 +17,7 @@
       <file leaf-file-name="RawOffice.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/RawOffice.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
+            <state relative-caret-position="646">
               <caret line="38" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
@@ -27,8 +27,8 @@
       <file leaf-file-name="RawPDF.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/RawPDF.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="35" column="12" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+            <state relative-caret-position="527">
+              <caret line="31" column="37" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -242,7 +242,7 @@
       <option name="presentableId" value="Default" />
       <updated>1514890336324</updated>
       <workItem from="1514890337519" duration="9607000" />
-      <workItem from="1514908849374" duration="7699000" />
+      <workItem from="1514908849374" duration="7891000" />
     </task>
     <task id="LOCAL-00001" summary="Added config for ffmpeg &amp; libreoffice">
       <created>1514892302281</created>
@@ -412,11 +412,18 @@
       <option name="project" value="LOCAL" />
       <updated>1514917038296</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added config for ffmpeg &amp; libreoffice">
+      <created>1514917119304</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1514917119304</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17306000" />
+    <option name="totallyTimeSpent" value="17498000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -653,7 +660,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/RawOffice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
+        <state relative-caret-position="646">
           <caret line="38" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
@@ -661,8 +668,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/RawPDF.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="35" column="12" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+        <state relative-caret-position="527">
+          <caret line="31" column="37" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
           <folding />
         </state>
       </provider>
