@@ -18,7 +18,7 @@ class RawPDF implements IProvider {
         $tmpDir = \OC::$server->getTempManager()->getTempBaseDir();
 
         $folder = \OC::$server->getAppFolder();
-        \OCP\Util::writeLog('core', $folder, \OCP\Util::ERROR);
+        // \OCP\Util::writeLog('core', $folder, \OCP\Util::ERROR);
         //create imagick object from pdf
         $pdfPreview = null;
 
@@ -33,7 +33,7 @@ class RawPDF implements IProvider {
             $pdf->readImage($pdfPreview);
             $pdf->resizeImage(32,32,\Imagick::FILTER_LANCZOS,1);
             $overlay = new \Imagick();
-            $overlay->readImage("../img/pdf.png");
+            $overlay->readImage("$folder/img/pdf.png");
             $pdf->compositeImage($overlay, \Imagick::COMPOSITE_OVER, 0, 0);
             //$pdf = new \imagick($pdfPreview . '[0]');
             //$pdf->setImageFormat('jpg');
