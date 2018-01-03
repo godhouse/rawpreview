@@ -23,7 +23,7 @@ class RawPDF implements IProvider {
         list($dirname, , , $filename) = array_values(pathinfo($absPath));
         $pdfPreview = $tmpDir . '/' . $filename . '.jpg';
 
-        $exec = $this->gs . " -dNOPAUSE -sDEVICE=jpeg -r75 -dJPEGQ=60  -dFirstPage=1 -dLastPage=1 -sOutputFile=" . escapeshellarg($pdfPreview) . " " . escapeshellarg($absPath) . " -dBATCH";
+        $exec = $this->gs . " -dNOPAUSE -sDEVICE=jpeg -r75 -dJPEGQ=80  -dFirstPage=1 -dLastPage=1 -sOutputFile=" . escapeshellarg($pdfPreview) . " " . escapeshellarg($absPath) . " -dBATCH";
         shell_exec($exec);
 
         try {
